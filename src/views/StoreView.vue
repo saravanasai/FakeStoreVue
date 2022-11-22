@@ -1,6 +1,7 @@
 <template>
   <div class="album py-5 bg-light">
     <div class="container">
+      <h4 data-test="store-view">Store Products List</h4>
       <div class="row">
         <template v-for="product in productList" :key="product.id">
           <div class="col-md-4">
@@ -20,10 +21,10 @@
 </template>
 
 <script lang="ts">
-import ProductCard from "@/components/Widgets/ProductCard.vue";
-import { ProductActionEnum } from "@/store/Products/ActionTypes";
-import ProductDataInterface from "@/store/Products/ProductType";
-import { defineComponent, onMounted } from "vue";
+import ProductCard from "../components/Widgets/ProductCard.vue";
+import { ProductActionEnum } from "../store/Products/ActionTypes";
+import ProductDataInterface from "../store/Products/ProductType";
+import { computed, defineComponent, onMounted } from "vue";
 import { useStore } from "vuex";
 
 export default defineComponent({
@@ -36,7 +37,9 @@ export default defineComponent({
 
     const store = useStore();
 
-    let productList: ProductDataInterface[] = store.getters.productList;
+    let productList = computed(
+      () => store.getters.productList as ProductDataInterface[]
+    );
 
     return { productList };
   },

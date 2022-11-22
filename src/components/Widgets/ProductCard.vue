@@ -40,6 +40,5 @@ export default defineComponent({
     image: String,
     rating: Object,
   },
-  setup() {},
 });
 </script>

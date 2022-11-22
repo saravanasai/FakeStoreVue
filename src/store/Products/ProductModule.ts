@@ -11,13 +11,10 @@ export default class ProductModule
   implements ProductMutationType, ProductActionType
 {
   productsList: ProductDataInterface[] = [];
-  isLoading: boolean = false;
+  isLoading = false;
 
-
-
-  get productList(){
-
-    return this.productsList
+  get productList() {
+    return this.productsList;
   }
 
   @Mutation

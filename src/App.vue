@@ -11,14 +11,9 @@
 import { defineComponent } from "vue";
 import HeaderNav from "./components/Layouts/HeaderNav.vue";
 
-
 export default defineComponent({
-  components: {HeaderNav},
-  setup() {
-
-  
-    
-  },
+  components: { HeaderNav },
+  setup() {},
 });
 </script>
 
